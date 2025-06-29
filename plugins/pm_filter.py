@@ -1114,8 +1114,8 @@ async def auto_filter(client, msg, s, spoll=False):
                 [InlineKeyboardButton("📰 ʟᴀɴɢᴜᴀɢᴇs", callback_data=f"languages#{key}#{req}#{offset}"),
                 InlineKeyboardButton("🔍 ǫᴜᴀʟɪᴛʏ", callback_data=f"quality#{key}#{req}#{offset}")]
             )
-            btn.insert(1,
-                [InlineKeyboardButton("𝗕𝘂𝗱𝗱𝗶𝗻𝗴 𝗖𝗼𝗺𝗺𝘂𝗻𝗶𝘁𝘆", url="www.t.me/norFederation")]
+            btn.insert(1, 
+                       [InlineKeyboardButton("𝗕𝘂𝗱𝗱𝗶𝗻𝗴 𝗖𝗼𝗺𝗺𝘂𝗻𝗶𝘁𝘆", url=await get_shortlink(settings['url'], settings['api'], f'https://t.me/norFederation'))]
             )
         btn.append(
             [InlineKeyboardButton(text=f"1/{math.ceil(int(total_results) / MAX_BTN)}", callback_data="buttons"),
@@ -1124,7 +1124,7 @@ async def auto_filter(client, msg, s, spoll=False):
     else:
         if settings['shortlink'] and not await is_premium(message.from_user.id, client):
             btn.insert(0,
-                [InlineKeyboardButton("𝗕𝘂𝗱𝗱𝗶𝗻𝗴 𝗖𝗼𝗺𝗺𝘂𝗻𝗶𝘁𝘆", url="www.t.me/norFederation")]
+                [InlineKeyboardButton("𝗕𝘂𝗱𝗱𝗶𝗻𝗴 𝗖𝗼𝗺𝗺𝘂𝗻𝗶𝘁𝘆", url=await get_shortlink(settings['url'], settings['api'], f'https://t.me/norFederation'))]
             )
         else:
             btn.insert(0,
